@@ -1,20 +1,45 @@
-// import user from "./data/user.json";
-// import data from "./data/data.json";
-// import friends from "./data/friends.json";
-// import transactions from "./data/transactions.json";
+import React, { Component } from 'react';
+import Section from './components/Section/Section';
+import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
+// import Statistics from './components/Statistics/Statistics';
 
-// import Profile from "./components/Profile/Profile";
-// import Statistics from "./components/Statistics/Statistics";
-// import FriendList from "./components/FriendList/FriendList";
-// import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
-export default function App() {
-  return (
-    <>
-      {/* <Profile username={username} tag={tag} location={location} avatar={avatar} stats={stats} />
-			<Statistics title="Upload stats" stats={data} />
-			<FriendList friends={friends} />
-			<TransactionHistory items={transactions} /> */}
-    </>
-  );
+  onLeaveFeedback = option =>
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
+
+  countTotalFeedback = () => {
+    const totalValue = Object.values(this.state);
+    console.log(totalValue);
+  };
+
+  countPositiveFeedbackPercentage = () => {};
+
+  render() {
+    // const { good, neutral, bad } = this.state;
+
+    return (
+      <>
+        <Section />
+        <FeedbackOptions
+          options={this.state}
+          onLeaveFeedback={this.onLeaveFeedback}
+        />
+        {/* <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={this.countTotalFeedback()}
+          positivePercentage={this.countPositiveFeedbackPercentage()}
+        /> */}
+      </>
+    );
+  }
 }
+
+export default App;

@@ -1,0 +1,29 @@
+.statList {
+	display: flex;
+	align-items: center;
+}
+
+.item {
+	width: 88px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 8px 0;
+	background-color: var(--color-bgr-item);
+	border: var(--line-border);
+	border-radius: 8px;
+}
+
+.label {
+	padding-bottom: 4px;
+
+	font-size: 20px;
+	line-height: 1.15;
+}
+
+.percentage {
+	font-size: 24px;
+	line-height: 1.13;
+	font-weight: bold;
+}
