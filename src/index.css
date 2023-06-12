@@ -3,12 +3,10 @@
 :root {
 	--color-body: #f5f5f5;
 	--color-text: #212121;
-	--color-button: #e3e6de;
+	--color-button: #efede7;
 	--color-accent: #8ecae0;
-
-
 	--color-card: #fefefe;
-	--color-bgr-item: #f0f3f5;
+	/* --color-bgr-item: #f0f3f5; */
 
 
 	--line-border: 1px solid rgba(50, 52, 52, 0.2);

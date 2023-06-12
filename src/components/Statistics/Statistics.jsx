@@ -1,26 +1,41 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 
-export default function Statistics({ good, neutral, bad }) {
-  return (
-    <div>
-      <h2 className={css.header}>Please leave feedback</h2>
+export default function Statistics({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) {
+  const statistics = Object.entries({
+    good,
+    neutral,
+    bad,
+    total,
+    positivePercentage,
+  });
 
-      <ul className={css.list}>
-        {userStatistics.map(stat => {
-          return (
-            <li key={stat[0]} className={css.item}>
-              <span className={css.label}>{stat[0]}</span>
-              <span className={css.quantity}>{stat[1]}</span>
-            </li>
-          );
-        })}
-        <li key={stat[0]} className={css.item}></li>
-      </ul>
-    </div>
+  return (
+    <ul className={css.list}>
+      {statistics.map(stat => {
+        return (
+          <li key={stat[0]} className={css.item}>
+            <p className={css.label}>
+              {stat[0].replace('positivePercentage', 'positive feedback')}:
+            </p>
+            <p className={css.quantity}>{stat[1]}</p>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
-// Statistics.propTypes = {
-//   stats: PropTypes.object.isRequired,
-// };
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.string.isRequired,
+};
